@@ -1,3 +1,6 @@
+Fork with some advantages from 3.0.x like working `from __future__ import annotations` (usable for things like kivy Android apps build)
+-------------
+
 Welcome to Cython!  
 ==================
 
