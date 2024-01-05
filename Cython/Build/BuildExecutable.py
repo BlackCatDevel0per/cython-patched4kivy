@@ -7,6 +7,8 @@ Basic usage:
     python -m Cython.Build.BuildExecutable [ARGS] somefile.py
 """
 
+# TODO: Move some other stuff from branches 3.0.0 and try something with newer versions..
+
 from __future__ import absolute_import
 
 DEBUG = True
