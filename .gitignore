@@ -43,3 +43,7 @@ MANIFEST
 
 # Visual Studio Code files
 .vscode
+
+venv
+.venv
+
