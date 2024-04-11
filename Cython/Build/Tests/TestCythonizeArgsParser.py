@@ -1,7 +1,22 @@
 from Cython.Build.Cythonize import (
-    create_args_parser, parse_args_raw, parse_args,
+    parse_args,
     parallel_compiles
 )
+
+from optparse import OptionParser as create_args_parser
+
+def parse_args_raw(parser, args):
+    options, unknown = parser.parse_known_args(args)
+    sources = options.sources
+    # if positional arguments were interspersed
+    # some of them are in unknown
+    for option in unknown:
+        if option.startswith('-'):
+            parser.error("unknown option "+option)
+        else:
+            sources.append(option)
+    del options.sources
+    return (options, sources)
 
 from Cython.Compiler import Options
 from Cython.Compiler.Tests.Utils import backup_Options, restore_Options, check_global_options

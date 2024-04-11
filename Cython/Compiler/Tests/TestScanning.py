@@ -7,7 +7,6 @@ import string
 from .. import Scanning
 from ..Symtab import ModuleScope
 from ..TreeFragment import StringParseContext
-from ..Errors import init_thread
 
 # generate some fake code - just a bunch of lines of the form "a0 a1 ..."
 code = []
@@ -16,7 +15,7 @@ for ch in string.ascii_lowercase:
     code.append(line)
 code = "\n".join(code)
 
-init_thread()
+# NOTE: There no thread initialization..
 
 
 class TestScanning(unittest.TestCase):
