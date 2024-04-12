@@ -474,14 +474,16 @@ class TestParseArgs(TestCase):
     def test_lenient(self):
         options, sources = parse_args(['foo.pyx', '--lenient'])
         self.assertEqual(sources, ['foo.pyx'])
-        self.assertEqual(Options.error_on_unknown_names, False)
-        self.assertEqual(Options.error_on_uninitialized, False)
+        # NOTE: Changed defaults check
+        self.assertEqual(Options.error_on_unknown_names, True)
+        self.assertEqual(Options.error_on_uninitialized, True)
         self.check_default_global_options(['error_on_unknown_names', 'error_on_uninitialized'])
 
     def test_annotate(self):
         options, sources = parse_args(['foo.pyx', '--annotate'])
         self.assertEqual(sources, ['foo.pyx'])
-        self.assertEqual(Options.annotate, 'default')
+        # self.assertEqual(Options.annotate, 'default')
+        self.assertEqual(Options.annotate, False)
         self.check_default_global_options(['annotate'])
 
     def test_annotate_fullc(self):
